@@ -43,7 +43,9 @@ class LookupImpl<T extends Discovery> implements Lookup<T> {
                 }
             }
             catch ( RemoteException e ) {
-                e.printStackTrace();
+                if ( LOG.isErrorEnabled() ) {
+                    LOG.error( String.format( "Exception occured while looking up service of class [%s].", clazz ), e );
+                }
             }
         }
         if ( list.isEmpty() ) {

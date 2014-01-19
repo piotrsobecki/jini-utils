@@ -28,13 +28,13 @@ public class UnicastDiscoveryUtil extends DiscoveryUtil implements Discovery {
         }
         catch ( IOException e ) {
             if ( LOG.isErrorEnabled() ) {
-                LOG.error( "Error occured while getting discovery. ", e );
+                LOG.error( "Input Output Error occured while getting discovery. ", e );
             }
             throw new DiscoveryFailedException( e );
         }
         catch ( ClassNotFoundException e ) {
             if ( LOG.isErrorEnabled() ) {
-                LOG.error( "Error occured while getting discovery. ", e );
+                LOG.error( "Class Not Found Error occured while getting discovery. ", e );
             }
             throw new DiscoveryFailedException( e );
         }

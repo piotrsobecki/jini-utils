@@ -1,5 +1,7 @@
 package pl.piotrsukiennik.jini.lookup;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.piotrsukiennik.jini.discovery.MulticastDiscovery;
 import pl.piotrsukiennik.jini.exception.LookupFailedException;
 import pl.piotrsukiennik.jini.util.ListUtil;
@@ -11,13 +13,14 @@ import java.util.List;
  * @date 19.01.14
  */
 class WaitingLookupImpl<T extends MulticastDiscovery> extends LookupImpl<T> implements WaitingLookup<T> {
+    private static final Logger LOG = LoggerFactory.getLogger( WaitingLookupImpl.class );
 
     public WaitingLookupImpl( T multicastDiscovery ) {
         super( multicastDiscovery );
     }
 
     @Override
-    public <T1> T1 lookupRandom( Class<T1> clazz ) {
+    public <T> T lookupRandom( Class<T> clazz ) {
         return ListUtil.getRandom( lookupAll( clazz ) );
     }
 
@@ -27,6 +30,9 @@ class WaitingLookupImpl<T extends MulticastDiscovery> extends LookupImpl<T> impl
             return super.lookupAll( clazz );
         }
         catch ( LookupFailedException e ) {
+            if ( LOG.isDebugEnabled() ) {
+                LOG.debug( String.format( "No services found of class [%s].", clazz ), e );
+            }
             discovery.waitForNewRegistrars();
             return lookupAll( clazz );
         }
