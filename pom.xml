@@ -19,26 +19,68 @@
             </roles>
         </developer>
     </developers>
+    <scm>
+        <connection>scm:https://github.com/piotrsukiennik/jini-utils</connection>
+        <developerConnection>scm:https://github.com/piotrsukiennik/jini-utils</developerConnection>
+        <url>https://github.com/piotrsukiennik/jini-utils</url>
+    </scm>
+
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>http://jenkins.piotrsukiennik.pl/job/Jini%20Utils/</url>
+    </ciManagement>
+
     <organization>
-        <name>Inżynieria Oprogramowania Piotr Sukiennik</name>
+        <name>Inzynieria Oprogramowania Piotr Sukiennik</name>
         <url>http://piotrsukiennik.pl</url>
     </organization>
-    <ciManagement>
-        <system>jenkins</system>
-        <url>http://jenkins.piotrsukiennik.pl</url>
-    </ciManagement>
+
     <issueManagement>
-        <system>redmine</system>
-        <url>http://redmine.piotrsukiennik.pl</url>
+        <system>Redmine</system>
+        <url>http://redmine.piotrsukiennik.pl/projects/jini-utils</url>
     </issueManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-piotrsukiennik</id>
+            <name>Piotr Sukiennik Snapshots</name>
+            <url>http://nexus.piotrsukiennik.pl/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-piotrsukiennik</id>
+            <name>Piotr Sukiennik Releases</name>
+            <url>http://nexus.piotrsukiennik.pl/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>rio</id>
+            <url>http://www.rio-project.org/maven2</url>
+        </repository>
+        <repository>
+            <id>maven-piotrsukiennik</id>
+            <name>Public Maven Repository</name>
+            <url>http://maven.piotrsukiennik.pl</url>
+        </repository>
+    </repositories>
+
+
     <properties>
+        <junit.version>3.8.1</junit.version>
+        <jini.version>2.2.1</jini.version>
+        <rio.version>5.0-M3</rio.version>
         <slf4j.version>1.7.5</slf4j.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
+            <groupId>org.rioproject</groupId>
+            <artifactId>rio-platform</artifactId>
+            <version>${rio.version}</version>
+        </dependency>
+        <dependency>
+        <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
@@ -46,17 +88,18 @@
         <dependency>
             <groupId>org.apache.river</groupId>
             <artifactId>reggie</artifactId>
-            <version>2.2.2</version>
+            <version>${jini.version}</version>
         </dependency>
         <dependency>
             <groupId>net.jini</groupId>
             <artifactId>jsk-lib</artifactId>
-            <version>2.2.2</version>
+            <version>${jini.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+
     </dependencies>
 </project>

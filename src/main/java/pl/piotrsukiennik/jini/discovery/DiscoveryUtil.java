@@ -1,6 +1,7 @@
 package pl.piotrsukiennik.jini.discovery;
 
 import net.jini.core.lookup.ServiceRegistrar;
+import org.rioproject.url.artifact.ArtifactURLStreamHandlerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +26,7 @@ public abstract class DiscoveryUtil implements Discovery {
      * Uses policy.all file for java.security.policy.
      */
     static {
+        URL.setURLStreamHandlerFactory( new ArtifactURLStreamHandlerFactory() ); //support for artifact protocol
         ClassLoader cl = DiscoveryUtil.class.getClassLoader();
         URL policyURL = cl.getResource( "policy.all" );
         if ( LOG.isInfoEnabled() ) {
