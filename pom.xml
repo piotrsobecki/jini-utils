@@ -60,7 +60,7 @@
         <repository>
             <id>maven-piotrsukiennik</id>
             <name>Public Maven Repository</name>
-            <url>http://maven.piotrsukiennik.pl</url>
+            <url>http://nexus.piotrsukiennik.pl/content/groups/public/</url>
         </repository>
     </repositories>
 
