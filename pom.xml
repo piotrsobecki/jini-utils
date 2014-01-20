@@ -43,12 +43,12 @@
     <distributionManagement>
         <repository>
             <id>nexus-piotrsukiennik</id>
-            <name>Piotr Sukiennik Snapshots</name>
+            <name>Piotr Sukiennik Releases</name>
             <url>http://nexus.piotrsukiennik.pl/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
             <id>nexus-piotrsukiennik</id>
-            <name>Piotr Sukiennik Releases</name>
+            <name>Piotr Sukiennik Snapshots</name>
             <url>http://nexus.piotrsukiennik.pl/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
@@ -80,7 +80,7 @@
             <version>${rio.version}</version>
         </dependency>
         <dependency>
-        <groupId>junit</groupId>
+            <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>

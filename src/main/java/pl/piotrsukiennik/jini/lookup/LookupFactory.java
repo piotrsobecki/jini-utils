@@ -19,8 +19,12 @@ public class LookupFactory {
         return new LookupImpl<T>( discovery );
     }
 
-    public static <T extends MulticastDiscovery> WaitingLookup<T> getWaitingLookup( T discovery ) {
-        return new WaitingLookupImpl<T>( discovery );
+    public static <T extends MulticastDiscovery> SynchronousLookup<T> getSynchronousLookup( T discovery ) {
+        return new SynchronousLookupImpl<T>( discovery );
+    }
+
+    public static <T extends MulticastDiscovery> AsynchronousLookup<T> getAsynchronousLookup( T discovery ) {
+        return new AsynchronousLookupImpl<T>( discovery );
     }
 
     private LookupFactory() {

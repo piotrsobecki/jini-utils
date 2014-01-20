@@ -12,10 +12,10 @@ import java.util.List;
  * @author Piotr Sukiennik
  * @date 19.01.14
  */
-class WaitingLookupImpl<T extends MulticastDiscovery> extends LookupImpl<T> implements WaitingLookup<T> {
-    private static final Logger LOG = LoggerFactory.getLogger( WaitingLookupImpl.class );
+class SynchronousLookupImpl<T extends MulticastDiscovery> extends LookupImpl<T> implements SynchronousLookup<T> {
+    private static final Logger LOG = LoggerFactory.getLogger( SynchronousLookupImpl.class );
 
-    public WaitingLookupImpl( T multicastDiscovery ) {
+    public SynchronousLookupImpl( T multicastDiscovery ) {
         super( multicastDiscovery );
     }
 

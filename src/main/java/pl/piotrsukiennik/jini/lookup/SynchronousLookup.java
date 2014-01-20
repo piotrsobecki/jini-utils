@@ -11,7 +11,7 @@ import java.util.List;
  * @author Piotr Sukiennik
  * @date 19.01.14
  */
-public interface WaitingLookup<T extends MulticastDiscovery> extends Lookup<T> {
+public interface SynchronousLookup<T extends MulticastDiscovery> extends Lookup<T> {
 
     /**
      * Returns random service of class given as a parameter found via Discovery of Service Registrars.
